@@ -1,6 +1,8 @@
 # Exercice Motion path avec GSAP
 
-Présentation de l'exercie de micro animation avec [GSAP](https://gsap.com/)  GSAP : une forme suit un tracé.
+![capture](capture.png)
+
+Présentation de l'exercie de micro animation avec [GSAP](https://gsap.com/) : une forme suit un tracé.
 
 Objectifs de l'exercice :
 
