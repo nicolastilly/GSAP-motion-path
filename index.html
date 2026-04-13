@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GSAP Motion Path</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/MotionPathPlugin.min.js"></script>
+
+    <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #FAEB92;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90vw;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #svg-stage {
+      width: 60%;
+      max-width: 500px;
+      overflow: visible;
+    }
+
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+
+      <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+
+        <svg id="svg-stage" viewBox="0 0 239 245" xmlns="http://www.w3.org/2000/svg">
+      <path
+        id="monPath"
+        d="M81.8564 9.71289C88.3867 4.95216 98.0462 2.22513 111.97 5.30762L113.331 5.62402C126.904 8.93101 135.771 17.5411 146.556 26.1436C157.217 34.6472 169.272 42.5605 188.137 41.5889L188.25 41.583L188.362 41.5703C216.021 38.5726 239.777 65.0142 233.079 92.501C231.792 97.7823 229.797 103.386 227.664 109.23C225.56 114.994 223.313 121.011 221.692 126.812C218.542 138.089 217.229 150.332 225.764 159.373C229.603 164.383 229.672 172.199 226.472 178.404C224.901 181.449 222.679 183.802 220.122 185.111C217.643 186.38 214.624 186.791 211.037 185.632C201.541 182.564 194.046 182.412 188.919 187.529C186.552 189.892 185.101 193.025 184.078 196.382C183.051 199.754 182.352 203.717 181.721 208.024L181.707 208.115L181.698 208.206C179.623 228.954 158.617 244.072 138.217 239.101H138.216C134.444 238.18 130.398 236.39 126.868 234.133C123.518 231.991 120.896 229.599 119.384 227.411L119.097 226.977C114.956 220.419 110.011 216.195 104.708 213.719C99.433 211.255 94.0372 210.629 89.1221 210.89C79.5907 211.396 70.8558 215.459 68.5518 216.19V216.191C63.225 217.883 59.6066 217.606 57.1406 216.658C54.6751 215.711 52.8402 213.893 51.458 211.517C48.5705 206.552 48.1758 200.009 48.2939 198.109C48.9239 187.976 46.8316 180.027 41.9951 173.469C37.2669 167.058 30.2019 162.379 21.7061 158.148C8.72243 151.547 1.60917 136.78 4.73145 122.612L4.88867 121.938C6.91676 113.613 12.7556 106.979 19.4355 102.114L19.4365 102.115C23.5246 99.1386 27.025 95.0927 29.1279 89.6641C31.1585 84.4219 31.7903 78.1377 30.6748 70.6689L30.5615 69.9424C29.5399 63.6675 31.0302 60.0849 33.2061 57.8164C35.5787 55.3427 39.3882 53.7744 44.1309 52.9043L44.2246 52.8867L44.3164 52.8652C51.7036 51.1449 57.4148 48.8158 61.6191 44.9189C65.8982 40.9527 68.1627 35.7913 69.5439 29.3828C71.0562 22.3665 74.9849 14.7226 81.8564 9.71289Z"
+        stroke="black"
+        stroke-width="8"
+        fill="none"
+      />
+
+      <circle id="dot" cx="12" cy="12" r="12" fill="#9929EA" />
+    </svg>
+      </div>
+
+      <div class="swiper-slide">
+
+
+        <svg id="svg-stage" viewBox="0 0 281 204" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="monPath2" d="M7.09327 86.9883C10.2525 84.0708 51.1397 51.3307 71.1885 35.3253C91.2372 19.3199 89.3396 78.5006 114.02 83.6454C143.914 89.877 148.004 36.5565 178.419 39.276C219.989 42.9929 255.07 109.679 222.161 136.828C189.253 163.976 122.829 197 122.829 197C122.829 197 122.627 79.0869 122.829 30.7668C123.032 -17.5533 266.512 0.0729067 276.536 79.3908C286.56 158.709 131.519 190.21 64.2018 136.828C25.9245 106.474 36.5313 -19.7104 12.5611 22.8654C0.232572 44.7633 3.93407 89.9057 7.09327 86.9883Z" stroke="black" stroke-width="8"/>
+<circle id="dot2" cx="122" cy="49" r="12" fill="#9929EA"/>
+</svg>
+
+      </div>
+
+
+      <div class="swiper-slide">
+        <svg id="svg-stage" viewBox="0 0 229 236" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="monPath3" d="M8.92688 100.683C8.92688 100.683 39.56 59.3418 65.9269 63.1833C103.603 68.6726 82.9269 159.183 82.9269 159.183C66.2602 153.017 33.9269 139.983 37.9269 137.183C41.9269 134.383 136.427 70.1833 136.427 70.1833C136.427 70.1833 180.727 238.483 171.927 231.683C163.127 224.883 108.927 84.85 82.9269 15.6833L25.9269 8.18332C25.9269 8.18332 -4.57312 238.35 52.9269 220.683C110.427 203.017 224.427 165.983 220.427 159.183C216.427 152.383 175.76 60.6833 155.927 15.6833C136.094 -29.3167 220.427 70.1833 220.427 70.1833L8.92688 100.683Z" stroke="black" stroke-width="8"/>
+<circle id="dot3" cx="198.927" cy="111.183" r="12" fill="#9929EA"/>
+</svg>
+
+      </div>
+    </div>
+
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+
+
+
+
+  <div class="container">
+
+  </div>
+
+
+
+    <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+
+
+  <script>
+
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+
+    gsap.registerPlugin(MotionPathPlugin);
+
+    gsap.to("#dot", {
+      duration: 8,
+      repeat: -1,
+      ease: "none",
+      motionPath: {
+        path: "#monPath",
+        align: "#monPath",
+        alignOrigin: [0.5, 0.5]
+      }
+    });
+
+        gsap.to("#dot2", {
+      duration: 19,
+      repeat: -1,
+      ease: "none",
+      motionPath: {
+        path: "#monPath2",
+        align: "#monPath2",
+        alignOrigin: [0.5, 0.5]
+      }
+    });
+
+            gsap.to("#dot3", {
+      duration: 19,
+      repeat: -1,
+      ease: "expo.out",
+      motionPath: {
+        path: "#monPath3",
+        align: "#monPath3",
+        alignOrigin: [0.5, 0.5]
+      }
+    });
+    
+  </script>
+</body>
+</html>
