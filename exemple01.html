@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Motion path GSAP 01</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/MotionPathPlugin.min.js"></script>
+
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+        <style>
+            html,
+            body {
+                position: relative;
+                height: 100%;
+            }
+
+            body {
+                background: #141414;
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                color: #fff;
+                margin: 0;
+                padding: 0;
+                overflow-y: hidden;
+            }
+
+            .container {
+                width: 90vw;
+                height: 90vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #svg-stage {
+                width: 80%;
+                max-width: 1300px;
+                overflow: visible;
+            }
+
+
+            .swiper {
+                width: 100%;
+                height: 100%;
+            }
+
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .swiper-slide img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #img1 {
+                background: url(images/dither01.png) no-repeat center center fixed;
+                background-size: cover;
+                opacity: 0.8;
+            }
+
+            #img2 {
+                background: url(images/dither02.png) no-repeat center center fixed;
+                background-size: cover;
+                opacity: 0.8;
+            }
+
+            /* #dot,
+            #dot2 {
+                mix-blend-mode: hard-light;
+            } */
+        </style>
+    </head>
+
+    <body>
+
+
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <!--slide 1-->
+                <div class="swiper-slide" id="img1">
+
+                    <svg id="svg-stage" viewBox="0 0 964 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path id="monPath"
+                            d="M960.12 340C960.12 153.88 809.239 3 623.12 3C437 3 286.12 153.88 286.12 340C286.12 526.12 437 677 623.12 677V680C435.343 680 283.12 527.777 283.12 340C283.12 152.223 435.343 0 623.12 0C810.896 0 963.12 152.223 963.12 340C963.12 527.777 810.896 680 623.12 680V677C809.239 677 960.12 526.12 960.12 340Z"
+                            fill="#FFF585" />
+                        <path id="monPath2"
+                            d="M694.12 340C694.12 153.88 543.239 3 357.12 3C171 3 20.1195 153.88 20.1195 340C20.1195 526.12 171 677 357.12 677V680C169.343 680 17.1195 527.777 17.1195 340C17.1195 152.223 169.343 0 357.12 0C544.896 0 697.12 152.223 697.12 340C697.12 527.777 544.896 680 357.12 680V677C543.239 677 694.12 526.12 694.12 340Z"
+                            fill="#134E87" />
+
+                        <path id="dot" d="M1.18021e-06 0L0 27L36 13.5L1.18021e-06 0Z" fill="#0B2E4F" />
+
+                        <path id="dot2" d="M1.18021e-06 0L0 27L36 13.5L1.18021e-06 0Z" fill="#0B2E4F" />
+
+                    </svg>
+
+
+                </div>
+
+
+
+                <div class="swiper-slide" id="img2">
+
+
+                    <svg id="svg-stage" viewBox="0 0 990 652" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path id="monPath3"
+                            d="M596.216 143.284C490.135 189.217 250.957 290.076 145.396 339.339C131.362 342.842 93.9547 365.776 90.0249 368.518C75.7448 380.725 55.9764 399.377 37.8546 420.247C19.1099 442.494 1.31079 462.727 4.33686 490.004C5.73382 502.596 8.33944 513.666 16.409 517.188C25.3 521.068 86.5772 525.759 177.045 517.122C231.404 511.932 260.035 509.834 374.396 474.868C479.453 442.747 673.825 381.366 773.842 350.269C845.999 327.833 879.351 318.381 905.552 303.151C931.754 287.92 978.261 260.437 1015.01 232.129C1081.78 180.694 1137.18 142.991 1137.4 112.894C1137.63 81.2539 1143.84 9.80927 1110.44 4.70787C1077.84 -0.270584 969.58 22.3317 916.012 30.7279C901.057 33.0719 839.12 49.5912 759.412 77.4211C725.386 89.3009 710.653 93.7327 596.216 143.284Z"
+                            stroke="none" stroke-width="8" stroke-linecap="round" />
+
+                        <path id="dot3" d="M1.18021e-06 0L0 27L36 13.5L1.18021e-06 0Z" fill="#0B2E4F" />
+                        <path id="dot4" d="M1.18021e-06 0L0 27L36 13.5L1.18021e-06 0Z" fill="#0B2E4F" />
+                        <path id="dot5" d="M1.18021e-06 0L0 27L36 13.5L1.18021e-06 0Z" fill="#0B2E4F" />
+
+
+                    </svg>
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+                <div class="swiper-slide">
+
+                </div>
+            </div>
+
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+
+        <div class="container">
+
+        </div>
+
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+
+
+        <script>
+
+            var swiper = new Swiper(".mySwiper", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+
+            gsap.registerPlugin(MotionPathPlugin);
+
+            gsap.to("#dot", {
+                duration: 20,
+                repeat: -1,
+                ease: "power4.out",
+                motionPath: {
+                    path: "#monPath",
+                    align: "#monPath",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true,
+                }
+            });
+
+            gsap.to("#dot2", {
+                duration: 12,
+                repeat: -1,
+                ease: "sine.out",
+                motionPath: {
+                    path: "#monPath2",
+                    align: "#monPath2",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true
+                }
+            });
+
+
+            gsap.to("#dot3", {
+                duration: 10,
+                repeat: -1,
+                ease: "none",
+                motionPath: {
+                    path: "#monPath3",
+                    align: "#monPath3",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true
+                }
+            });
+
+            gsap.to("#dot4", {
+                duration: 20,
+                repeat: -1,
+                ease: "none",
+                motionPath: {
+                    path: "#monPath3",
+                    align: "#monPath3",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true
+                }
+            });
+
+            gsap.to("#dot5", {
+                duration: 8,
+                repeat: -1,
+                ease: "none",
+                motionPath: {
+                    path: "#monPath3",
+                    align: "#monPath3",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true
+                }
+            });
+
+
+        </script>
+
+    </body>
+
+</html>
