@@ -44,6 +44,8 @@
             }
 
 
+            /* swiper */
+
             .swiper {
                 width: 100%;
                 height: 100%;
@@ -64,6 +66,12 @@
                 object-fit: cover;
             }
 
+            .swiper-pagination-bullet-active {
+                background-color: #ffffff !important;
+            }
+
+            /* fonds slides */
+
             #img1 {
                 background: url(images/dither01.png) no-repeat center center fixed;
                 background-size: cover;
@@ -76,10 +84,15 @@
                 opacity: 0.8;
             }
 
-            /* #dot,
-            #dot2 {
-                mix-blend-mode: hard-light;
-            } */
+            #img3 {
+                background: url(images/dither03.png) no-repeat center center fixed;
+                background-size: cover;
+                opacity: 0.8;
+            }
+
+            #dot6 {
+                mix-blend-mode: difference;
+            }
         </style>
     </head>
 
@@ -135,17 +148,32 @@
 
 
 
+                <div class="swiper-slide" id="img3">
+
+                    <svg id="svg-stage" viewBox="0 0 947 633" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path id="monPath4"
+                            d="M1.53527 273.607C0.238871 184.633 34.6928 126.592 103.035 69.607C153.529 27.5047 193.696 15.9704 258.535 5.10699C368.828 -13.3717 428.704 43.8845 537.535 69.607C678.338 102.886 813.562 39.2879 897.535 157.107C976.604 268.045 948.305 386.579 882.035 505.607C855.182 553.838 843.085 593.602 792.035 614.607C745.749 633.652 701.461 641.34 664.035 608.107C626.566 574.835 629.243 529.922 642.535 481.607C660.17 417.507 749.79 433.756 772.035 371.107C786.932 329.153 787.103 298.999 772.035 257.107C736.671 158.787 606.826 122.674 517.035 176.107C442.776 220.297 492.944 316.296 437.535 382.607C364.037 470.567 281.735 535.345 171.035 505.607C62.6708 476.497 3.17001 385.802 1.53527 273.607Z"
+                            stroke="none" stroke-width="3" />
 
 
+                        <circle id="dot6" cx="10.5" cy="10.5" r="10.5" fill="#E59504" />
 
-                <div class="swiper-slide">
+
+                        <path id="dot7" d="M1.18021e-06 0L0 27L36 13.5L1.18021e-06 0Z" fill="#fff" />
+
+
+                    </svg>
+
 
                 </div>
+
+
             </div>
 
 
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+            <div class="swiper-pagination"></div>
         </div>
 
 
@@ -161,10 +189,17 @@
 
         <script>
 
+            // var swiper = new Swiper(".mySwiper", {
+            //     navigation: {
+            //         nextEl: ".swiper-button-next",
+            //         prevEl: ".swiper-button-prev",
+            //     },
+            // });
+
             var swiper = new Swiper(".mySwiper", {
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
+                pagination: {
+                    el: ".swiper-pagination",
+                    dynamicBullets: true,
                 },
             });
 
@@ -227,6 +262,32 @@
                 motionPath: {
                     path: "#monPath3",
                     align: "#monPath3",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true
+                }
+            });
+
+            gsap.to("#dot6", {
+                duration: 12.5,
+                repeat: -1,
+                ease: "none",
+                //scale: 8,
+                scale: "random([3, 2, 5, 4])",
+                motionPath: {
+                    path: "#monPath4",
+                    align: "#monPath4",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true
+                }
+            });
+
+            gsap.to("#dot7", {
+                duration: 12,
+                repeat: -1,
+                ease: "none",
+                motionPath: {
+                    path: "#monPath4",
+                    align: "#monPath4",
                     alignOrigin: [0.5, 0.5],
                     autoRotate: true
                 }
