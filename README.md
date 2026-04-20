@@ -12,3 +12,7 @@ Objectifs de l'exercice :
 - Définir une palette de couleurs pour les tracés, les formes qui suivent, le fond...
 
 L'exercice doit également utiliser la librairie [swiper.js](https://swiperjs.com/demos) afin de produire une "collection" de micro animations. Il faudra choisir dans les démos de swiper.js une navigation : Default, Navigation, Pagination...
+
+# Démo 01
+
+Lien vers la [démo 01](https://nicolastilly.github.io/GSAP-motion-path/exemple01.html)
