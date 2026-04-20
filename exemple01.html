@@ -106,6 +106,13 @@
                 padding-top: 2%;
                 z-index: 1000;
             }
+
+            #ui {
+                position: absolute;
+                z-index: 1000;
+                right: 2%;
+                top: 15%;
+            }
         </style>
     </head>
 
@@ -120,6 +127,15 @@
             <circle id="dotLogo" cx="52" cy="39" r="9" fill="white" />
         </svg>
 
+        <!-- UI -->
+        <svg id="ui" width="38" height="774" viewBox="0 0 38 774" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="pathUI" d="M18 0V771.5" stroke="white" stroke-width="4" />
+            <path d="M0 2H37.5" stroke="white" stroke-width="4" />
+            <path d="M0 772H37.5" stroke="white" stroke-width="4" />
+
+            <circle id="UIslide" cx="52" cy="39" r="12" fill="white" />
+
+        </svg>
 
 
 
@@ -329,6 +345,19 @@
                 motionPath: {
                     path: "#pathLogo",
                     align: "#pathLogo",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true
+                }
+            });
+
+            gsap.to("#UIslide", {
+                duration: 7,
+                repeat: -1,
+                ease: "circ.out",
+                yoyo: true,
+                motionPath: {
+                    path: "#pathUI",
+                    align: "#pathUI",
                     alignOrigin: [0.5, 0.5],
                     autoRotate: true
                 }
